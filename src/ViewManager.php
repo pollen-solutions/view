@@ -6,7 +6,6 @@ namespace Pollen\View;
 
 use Closure;
 use Pollen\Support\Concerns\BootableTrait;
-use Pollen\Support\Concerns\ConfigBagAwareTrait;
 use Pollen\Support\Exception\ManagerRuntimeException;
 use Pollen\Support\Proxy\ContainerProxy;
 use Pollen\View\Engines\Plates\PlatesViewEngine;
@@ -21,7 +20,6 @@ use Throwable;
 class ViewManager implements ViewManagerInterface
 {
     use BootableTrait;
-    use ConfigBagAwareTrait;
     use ContainerProxy;
 
     private static ?ViewManagerInterface $instance = null;
@@ -63,13 +61,10 @@ class ViewManager implements ViewManagerInterface
     private array $resolvedExtensions = [];
 
     /**
-     * @param array $config
      * @param Container|null $container
      */
-    public function __construct(array $config = [], ?Container $container = null)
+    public function __construct(?Container $container = null)
     {
-        $this->setConfig($config);
-
         if ($container !== null) {
             $this->setContainer($container);
         }

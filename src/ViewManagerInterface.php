@@ -6,12 +6,10 @@ namespace Pollen\View;
 
 use Closure;
 use Pollen\Support\Concerns\BootableTraitInterface;
-use Pollen\Support\Concerns\ConfigBagAwareTraitInterface;
 use Pollen\Support\Proxy\ContainerProxyInterface;
 
 interface ViewManagerInterface extends
     BootableTraitInterface,
-    ConfigBagAwareTraitInterface,
     ContainerProxyInterface,
     ViewInterface
 {
