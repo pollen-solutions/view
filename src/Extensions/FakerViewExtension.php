@@ -76,9 +76,9 @@ class FakerViewExtension extends ViewExtension
      * @param string $formatter
      * @param ...$args
      *
-     * @return string
+     * @return mixed
      */
-    protected function getFormatter(string $formatter, ...$args): string
+    protected function getFormatter(string $formatter, ...$args)
     {
         return $this->faker()->$formatter(...$args);
     }
