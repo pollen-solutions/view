@@ -35,7 +35,7 @@ class PlatesEngine extends BasePlatesEngine
      *
      * @return PlatesTemplate
      */
-    public function make($name): PlatesTemplate
+    public function make($name, array $data = []): PlatesTemplate
     {
         $regex = <<< REGEXP
         \:\:
@@ -46,7 +46,7 @@ class PlatesEngine extends BasePlatesEngine
         }
 
         $template = new $this->templateClass($this, $name);
-
+        $template->data($data);
         if ($container = $this->getContainer()) {
             $template->setContainer($container);
         }
